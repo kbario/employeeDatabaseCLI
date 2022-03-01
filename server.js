@@ -1,11 +1,13 @@
 const express = require('express');
 const mysql = require('mysql2')
+const api = require('./routes/index.js')
 
 const app = express();
 const PORT = process.env.PORT||8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api', api)
 // app.use(express.static('public'));
 
 const db = mysql.createConnection(
@@ -16,9 +18,9 @@ const db = mysql.createConnection(
       user: "root",
       // MySQL password
       password: "werwerwer",
-      database: "",
+      database: "cafe_db",
     },
-    console.log(`Connected to the  database.`)
+    console.log(`Connected to the cafe_db database.`)
   );
   
 app.listen(PORT, () => {
