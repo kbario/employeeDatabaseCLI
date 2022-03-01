@@ -1,5 +1,5 @@
 // create router with name
-const tips = require('express').Router();
+const departments = require('express').Router();
 
 // GET Route for retrieving all the tips
 tips.get('/', (req, res) => {
