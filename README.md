@@ -45,7 +45,7 @@ To utilise this app you will need to install and initialise mysql on your local 
     source schema.sql ( to initialise the database )
     source seeds.sql ( to populate the database with dummy data ) (optional)
 
-SEE A COMPLETE WALKTHROUGH OF USING employeeDatabaseCLI [HERE](https://watch.screencastify.com/v/GErYYXmUeL4jCrYhFGEm)
+SEE A COMPLETE WALKTHROUGH OF USING employeeDatabaseCLI [HERE](https://drive.google.com/file/d/1xL-5fCLbW5dK3JtM_uEFllY8AaLnOwJE/view)
 
 
 ## Contribute to Gener8aREADME
