@@ -1,19 +1,23 @@
-const inquirer = require('inquirer');
-const {menu, questions} = require('./helpers/questions')
-const {getAction} = require('./helpers/functions')
+const inquirer = require("inquirer");
+const { menu } = require("./helpers/questions");
+const { determineAndDoAction } = require('./helpers/functions')
+const initDB = require("./helpers/dbInit");
 
 
-function ask(ques){
-    inquirer
-        .prompt(ques)
-        .then((ans) => {
-            if(ans.do === "Quit"){
-                console.log('Goodbye :)')
-                return
-            }
-            const action = getAction(ans.do)
-        })
-
+async function ask(ques, db){
+  const ans = await inquirer.prompt(ques)
+  if (ans.do === 'Quit'){
+    console.log("Goodbye :)");
+    db.end();
+    return
+  }
+  await determineAndDoAction(ans.do, db)
+  ask(menu, db)
 };
 
-ask(menu);
+function init() {
+  const db = initDB()
+  ask(menu, db)
+};
+
+init()
